@@ -16,11 +16,12 @@ const updateCountdown = () => {
   const remainingMinutes = Math.floor(diff / 1000 / 60) % 60;
   const remainingSeconds = Math.floor(diff / 1000) % 60;
 
-  console.log(
-    remainingDays,
-    remainingHours,
-    remainingMinutes,
-    remainingSeconds
-  );
+  days.innerText = remainingDays;
+  hours.innerText = remainingHours < 10 ? "0" + remainingHours : remainingHours;
+  minutes.innerText =
+    remainingMinutes < 10 ? "0" + remainingMinutes : remainingMinutes;
+  seconds.innerText =
+    remainingSeconds < 10 ? "0" + remainingSeconds : remainingSeconds;
 };
-updateCountdown();
+
+setInterval(updateCountdown, 1000);
